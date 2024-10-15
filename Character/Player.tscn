@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://de7mc0keiimy4"]
 
-[ext_resource type="Script" path="res://Scripts/player.gd" id="1_2bi7x"]
+[ext_resource type="Script" path="res://Scripts/playerMover.gd" id="1_rg6gb"]
 [ext_resource type="PackedScene" uid="uid://b6xt2da4p8s3k" path="res://Models/TonkBody.gltf" id="2_nps53"]
 [ext_resource type="PackedScene" uid="uid://cdeq7h3mrl5lk" path="res://Models/TonkTurret.gltf" id="3_776ay"]
 
@@ -8,13 +8,17 @@
 height = 0.5
 
 [node name="Player" type="CharacterBody3D"]
-script = ExtResource("1_2bi7x")
+script = ExtResource("1_rg6gb")
+movement_speed = 4.0
+rotation_speed = 3.0
+metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.250183, 0)
 shape = SubResource("CylinderShape3D_ulg2b")
 
 [node name="Body" type="Node3D" parent="CollisionShape3D"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="TonkBody" parent="CollisionShape3D/Body" instance=ExtResource("2_nps53")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.251165, 0)
