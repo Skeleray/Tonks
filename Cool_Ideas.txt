@@ -1,0 +1,18 @@
+General thoughts and ideas:
+
+	Bullets can bounce on walls. Have a limited ammount of bounces before they explode, can upgrade.
+
+	bullets that split into more bullets on wall bounce.
+
+	ram attack
+
+	charge shot, goes faster and might bounce additional times, but you have to charge for a while while movement might be slower?
+
+Tank types:
+
+	Sword tank - tank with sword in it's barrel. Can swing head as meele combat, charge enemies. Can shoot sword at enemies but have to pick it up again
+
+	drill tank, drill trough walls? shoot drill shots that goes ("slowly") trough walls
+	
+	Trumpet tank. Elephant tank,  suck in bullets, shoot em back.
+
