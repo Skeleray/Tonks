@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bsihik7j0mfaa"]
+[gd_scene load_steps=7 format=3 uid="uid://bsihik7j0mfaa"]
 
 [ext_resource type="PackedScene" uid="uid://de7mc0keiimy4" path="res://Character/Player.tscn" id="1_8qc77"]
+[ext_resource type="PackedScene" uid="uid://brknc5konq6ak" path="res://Character/TankHead.tscn" id="2_dmj2s"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_nan84"]
 
@@ -9,6 +10,8 @@ albedo_color = Color(0.4148, 0.61, 0.447333, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ijess"]
 size = Vector3(20, 1, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xdat7"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -31,4 +34,14 @@ transform = Transform3D(1, 0, 0, 0, 0.173648, 0.984808, 0, -0.984808, 0.173648, 
 transform = Transform3D(1, 0, 0, 0, 0.385793, 0.922585, 0, -0.922585, 0.385793, 0, 4.83579, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_8qc77")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0347819, 0.226787, -0.0160939)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.232438, 0.226787, -0.0160939)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.719909, 0, 0, 0, 0.761143, 0, 0, 0, 0.846271, -0.00503969, -0.0230223, 2.5328)
+mesh = SubResource("BoxMesh_xdat7")
+skeleton = NodePath("../TankHead")
+
+[node name="TankHead" parent="." node_paths=PackedStringArray("mesh") instance=ExtResource("2_dmj2s")]
+transform = Transform3D(0.719909, 0, 0, 0, 0.761143, 0, 0, 0, 0.846271, -0.00503969, -0.0230223, 2.5328)
+rotation_speed = 2.0
+mesh = NodePath("../MeshInstance3D2")

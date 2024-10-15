@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://brknc5konq6ak"]
+
+[ext_resource type="Script" path="res://Character/tank_head.gd" id="1_6e5qn"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bgjw1"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4mu1e"]
+
+[node name="TankHead" type="Node3D"]
+transform = Transform3D(0.719909, 0, 0, 0, 0.761143, 0, 0, 0, 0.846271, 0, 0, 0)
+script = ExtResource("1_6e5qn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.694551, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_bgjw1")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(0.999633, 0.0247627, -0.0158274, -0.0102625, -0.0294333, -1.43908, -0.0250743, 0.99926, -0.041996, 0, 0, 1)
+mesh = SubResource("CylinderMesh_4mu1e")
+skeleton = NodePath("../..")
