@@ -28,15 +28,15 @@ func _process(delta: float) -> void:
 	if not result.is_empty() :
 			mouse_position_world = result["position"]
 			mesh.global_position = mouse_position_world
-			var current_tank_position := position
+			var current_tank_position := global_position
 			var target_delta :=  mouse_position_world - current_tank_position
-			var forward := basis.z
+			var forward := global_basis.z
 			
 			var forward_angle_radians := atan2(forward.x,forward.z)
 			var target_angle_radians := atan2(target_delta.x, target_delta.z)
 			print_debug(target_angle_radians)
 			var new_angle := rotate_toward(forward_angle_radians,target_angle_radians,rotation_speed * delta)
-			rotation.y = new_angle 
+			global_rotation.y = new_angle 
 			
 	
 	
