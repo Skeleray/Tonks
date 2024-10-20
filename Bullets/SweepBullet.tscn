@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://img2tabjlact"]
+
+[ext_resource type="Script" path="res://Bullets/sweep_bullet.gd" id="1_5ihya"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_louma"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_pwq38"]
+
+[node name="SweepBullet" type="Node3D" node_paths=PackedStringArray("shape")]
+script = ExtResource("1_5ihya")
+shape = NodePath("CollisionShape3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_louma")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_pwq38")
