@@ -20,15 +20,15 @@ shape = SubResource("CylinderShape3D_ulg2b")
 
 [node name="Body" type="Node3D" parent="CollisionShape3D"]
 
-[node name="TankHead" parent="CollisionShape3D/Body" node_paths=PackedStringArray("mesh") instance=ExtResource("2_4j75f")]
-transform = Transform3D(0.719909, 0, 0, 0, 0.761143, 0, 0, 0, 0.846271, 0, 0.265383, 0)
-rotation_speed = 4.0
-mesh = NodePath("../../../MeshInstance3D")
-
 [node name="TonkBody" parent="CollisionShape3D/Body" instance=ExtResource("2_nps53")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, -0.251165, 0)
+
+[node name="TankHead" parent="CollisionShape3D" node_paths=PackedStringArray("mesh") instance=ExtResource("2_4j75f")]
+transform = Transform3D(0.719909, 0, 0, 0, 0.761143, 0, 0, 0, 0.846271, 0, 0.265383, 0)
+rotation_speed = 4.0
+mesh = NodePath("../../MeshInstance3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.719909, 0, 0, 0, 0.761143, 0, 0, 0, 0.846271, 0, 0.515566, 0)
 mesh = SubResource("PrismMesh_wveib")
-skeleton = NodePath("../CollisionShape3D/Body/TankHead")
+skeleton = NodePath("../CollisionShape3D/TankHead")
