@@ -34,7 +34,6 @@ func _process(delta: float) -> void:
 			
 			var forward_angle_radians := atan2(forward.x,forward.z)
 			var target_angle_radians := atan2(target_delta.x, target_delta.z)
-			print_debug(target_angle_radians)
 			var new_angle := rotate_toward(forward_angle_radians,target_angle_radians,rotation_speed * delta)
 			global_rotation.y = new_angle 
 			
