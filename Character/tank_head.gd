@@ -2,6 +2,10 @@ extends Node3D
 
 @export var rotation_speed:float
 @export var mesh : MeshInstance3D
+@export var shootPoint : Node3D
+@export var bullet: PackedScene
+
+var testBool:=false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -13,7 +17,6 @@ func _process(delta: float) -> void:
 	var viewPort := get_viewport()
 	var mouse_position := viewPort.get_mouse_position()
 	var camera :=  viewPort.get_camera_3d()
-	
 	
 	var origin := camera.project_ray_origin(mouse_position)
 	var direction := camera.project_ray_normal(mouse_position)
@@ -37,9 +40,19 @@ func _process(delta: float) -> void:
 			var new_angle := rotate_toward(forward_angle_radians,target_angle_radians,rotation_speed * delta)
 			global_rotation.y = new_angle 
 			
+			
+	if Input.is_action_pressed("shoot") and testBool == false:
+		var new_bullet: BaseBullet
+		var test  =  bullet.instantiate() 
+		new_bullet = test as BaseBullet
+		get_tree().root.add_child(new_bullet)
+		var bulletDirection :=  (shootPoint.global_position - global_position).normalized()
+		new_bullet.SetStartPosition(shootPoint.global_position, bulletDirection)
+		testBool = true
 	
 	
-	pass
+
+	
 	
 func _physics_process(delta: float) -> void:
 	pass
