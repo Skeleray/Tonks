@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvmoxs3u410vf"]
+
+[ext_resource type="ArrayMesh" uid="uid://bgkd5rspabmax" path="res://Models/Enviroment/ground.res" id="1_rpqal"]
+[ext_resource type="ArrayMesh" uid="uid://1m0ukgxf23ww" path="res://Models/Enviroment/wall.res" id="2_olqm4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_okuw6"]
+size = Vector3(1, 0.125244, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mp5lk"]
+
+[node name="LibraryCubes" type="Node3D"]
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+visible = false
+mesh = ExtResource("1_rpqal")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0626221, 0)
+shape = SubResource("BoxShape3D_okuw6")
+
+[node name="Wall" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_olqm4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_mp5lk")
