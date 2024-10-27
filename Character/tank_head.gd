@@ -41,13 +41,14 @@ func _process(delta: float) -> void:
 			global_rotation.y = new_angle 
 			
 			
-	if Input.is_action_pressed("shoot") and testBool == false:
+	if Input.is_action_pressed("shoot") :
 		var new_bullet: BaseBullet
 		var test  =  bullet.instantiate() 
 		new_bullet = test as BaseBullet
 		get_tree().root.add_child(new_bullet)
-		var bulletDirection :=  (shootPoint.global_position - global_position).normalized()
-		new_bullet.SetStartPosition(shootPoint.global_position, bulletDirection)
+		var bulletDirection3D :=  (shootPoint.global_position - global_position)
+		var bullet_direction_flatt := Vector3(bulletDirection3D.x,0,bulletDirection3D.z).normalized()
+		new_bullet.SetStartPosition(shootPoint.global_position, bullet_direction_flatt)
 		testBool = true
 	
 	
