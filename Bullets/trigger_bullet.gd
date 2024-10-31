@@ -23,7 +23,6 @@ func _process(delta: float) -> void:
 		current_velocity = current_velocity.normalized() * max_velocity
 	var new_position := current_position + current_velocity * delta
 	position = new_position
-	print(new_position)
 	
 
 
@@ -32,4 +31,5 @@ func _process(delta: float) -> void:
 
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
-	print("test")
+	set_process(false)
+	visible = false

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr0p3cu7vnogv"]
+
+[ext_resource type="Script" path="res://Bullets/bullet_pool.gd" id="1_nvbps"]
+[ext_resource type="PackedScene" uid="uid://bh2csag5shpq5" path="res://Bullets/TriggerBullet.tscn" id="2_wbtyb"]
+
+[node name="BulletPoolTriggerBullets" type="Node3D"]
+script = ExtResource("1_nvbps")
+bullet = ExtResource("2_wbtyb")
+number_of_bullets = 100
