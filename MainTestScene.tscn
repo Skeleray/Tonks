@@ -19,7 +19,7 @@ ease = 2
 [node name="Node3D" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 4.59391e-07, -2.05979e-07, -7.83184e-08, 0.546096, 0.837723, 4.97326e-07, -0.837723, 0.546096, -0.232438, 2.3685, 2.16825)
+transform = Transform3D(1, 4.59391e-07, -2.05978e-07, -7.83184e-08, 0.546096, 0.837723, 4.97326e-07, -0.837723, 0.546096, -0.232438, 2.3685, 2.16825)
 script = SubResource("GDScript_ltx8a")
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]

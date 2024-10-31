@@ -3,7 +3,7 @@ extends Node3D
 @export var rotation_speed:float
 @export var mesh : MeshInstance3D
 @export var shootPoint : Node3D
-@export var bullet: PackedScene
+@export var bullet_pool : BulletPool
 
 var testBool:=false
 # Called when the node enters the scene tree for the first time.
@@ -42,10 +42,10 @@ func _process(delta: float) -> void:
 			
 			
 	if Input.is_action_pressed("shoot") :
-		var new_bullet: BaseBullet
-		var test  =  bullet.instantiate() 
-		new_bullet = test as BaseBullet
-		get_tree().root.add_child(new_bullet)
+		var new_bullet := bullet_pool._get_next_bullet()
+		new_bullet.set_process(true)
+		new_bullet.visible = true
+		
 		var bulletDirection3D :=  (shootPoint.global_position - global_position)
 		var bullet_direction_flatt := Vector3(bulletDirection3D.x,0,bulletDirection3D.z).normalized()
 		new_bullet.SetStartPosition(shootPoint.global_position, bullet_direction_flatt)
