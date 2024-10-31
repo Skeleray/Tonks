@@ -3,13 +3,12 @@ extends "res://Scripts/tankController.gd"
 #var tankRotation = float
 
 var body
-
 @export var dampening: float = 0.2
 
 var rot = 0
 
 func  _ready() -> void:
-	body = get_node("CollisionShape3D/Body")
+	body = get_node("Smoothing/Body")
 
 func control(delta):
 	
