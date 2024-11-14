@@ -34,7 +34,6 @@ func _process(delta: float) -> void:
 		var dictionary := result[0]
 		if dictionary.has("collider"):
 			shape = dictionary["collider"]
-			print("test")
 	else :
 		position = new_position
 			

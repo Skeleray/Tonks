@@ -42,6 +42,9 @@ func _process(delta: float) -> void:
 			
 			
 	if Input.is_action_pressed("shoot") :
+		
+		
+		
 		var new_bullet := bullet_pool._get_next_bullet()
 		new_bullet.set_process(true)
 		new_bullet.visible = true
