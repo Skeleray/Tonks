@@ -21,7 +21,7 @@ PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_came
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg", "res://addons/smoothing/plugin.cfg")
+enabled=PackedStringArray("res://addons/func_godot/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/smoothing/plugin.cfg")
 
 [input]
 
