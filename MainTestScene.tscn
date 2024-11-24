@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://de7mc0keiimy4" path="res://Character/Player.tscn" id="1_8qc77"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_pfbbg"]
-[ext_resource type="PackedScene" uid="uid://daxvp5ydpnic" path="res://Maps/TestingMap.tscn" id="2_c8nau"]
 [ext_resource type="Script" path="res://addons/smoothing/smoothing.gd" id="3_kshb4"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_x2k30"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_f3eam"]
+[ext_resource type="PackedScene" uid="uid://cbtde7bkbonw2" path="res://Scenes/TrenchBroomMapTest.tscn" id="6_68y8n"]
 
 [sub_resource type="GDScript" id="GDScript_ltx8a"]
 script/source = "extends Camera3D
@@ -39,10 +39,6 @@ maximum_speed = 4.0
 [node name="Smoothing2" type="Node3D" parent="Player"]
 script = ExtResource("3_kshb4")
 
-[node name="TestingMap" parent="." instance=ExtResource("2_c8nau")]
-collision_layer = 3
-collision_mask = 2
-
 [node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
 transform = Transform3D(1, 3.01749e-07, 5.7742e-08, -7.83184e-08, 0.54608, 0.837709, 4.97326e-07, -0.837699, 0.546085, -0.232438, 4.04392, 3.26042)
 script = ExtResource("3_x2k30")
@@ -54,5 +50,7 @@ follow_damping_value = Vector3(0.18, 0.18, 0.18)
 follow_distance = 6.0
 dead_zone_width = 0.1
 dead_zone_height = 0.1
-show_viewfinder_in_play = true
 spring_length = 6.0
+
+[node name="TrenchBroomMapTest" parent="." instance=ExtResource("6_68y8n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.49898, 0)

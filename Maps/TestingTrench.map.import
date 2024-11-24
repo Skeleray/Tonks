@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://biimlkgi6rug4"
+path="res://.godot/imported/TestingTrench.map-15cd2888c83af69afffe3a2ade979ac3.tres"
+
+[deps]
+
+source_file="res://Maps/TestingTrench.map"
+dest_files=["res://.godot/imported/TestingTrench.map-15cd2888c83af69afffe3a2ade979ac3.tres"]
+
+[params]
+
