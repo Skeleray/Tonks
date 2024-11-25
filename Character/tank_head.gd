@@ -41,7 +41,6 @@ func _process(delta: float) -> void:
 			var new_angle := rotate_toward(forward_angle_radians,target_angle_radians,rotation_speed * delta)
 			global_rotation.y = new_angle 
 			
-			
 	if Input.is_action_pressed("shoot") :
 		if ! rayCast.is_colliding() :
 			var new_bullet := bullet_pool._get_next_bullet()

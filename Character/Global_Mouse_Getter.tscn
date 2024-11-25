@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cs40arhevnm3g"]
+
+[ext_resource type="Script" path="res://Character/Mouse_Game_Script.gd" id="1_dmsqr"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_dmsqr")
