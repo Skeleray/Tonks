@@ -16,7 +16,6 @@ func SetStartPosition(start_position:Vector3, start_direction :Vector3 ) -> void
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
 	var current_position := global_position
 	current_velocity = current_velocity + direction * acceleration * delta
 	if (current_velocity.length_squared() > max_velocity * max_velocity) :

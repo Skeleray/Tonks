@@ -1,14 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://brknc5konq6ak"]
+[gd_scene load_steps=3 format=3 uid="uid://brknc5konq6ak"]
 
 [ext_resource type="Script" path="res://Character/tank_head.gd" id="1_6e5qn"]
 [ext_resource type="PackedScene" uid="uid://cdeq7h3mrl5lk" path="res://Models/TonkTurret.gltf" id="2_k5g0s"]
-[ext_resource type="PackedScene" uid="uid://brd3xrt4s6qyd" path="res://Bullets/BulletPoolTrigger.tscn" id="3_4b4sc"]
 
-[node name="TankHead" type="Node3D" node_paths=PackedStringArray("shootPoint", "bullet_pool", "rayCast")]
+[node name="TankHead" type="Node3D" node_paths=PackedStringArray("shootPoint", "rayCast")]
 transform = Transform3D(0.719909, 0, 0, 0, 0.761143, 0, 0, 0, 0.846271, 0, 0, 0)
 script = ExtResource("1_6e5qn")
 shootPoint = NodePath("ShootPoint")
-bullet_pool = NodePath("BulletPoolTrigger")
 rayCast = NodePath("RayCast3D")
 
 [node name="blockbench_export" parent="." instance=ExtResource("2_k5g0s")]
@@ -16,8 +14,6 @@ transform = Transform3D(-1.38906, 0, -1.03304e-07, 0, 1.31381, 0, 1.21436e-07, 0
 
 [node name="ShootPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.294772, 0.715774)
-
-[node name="BulletPoolTrigger" parent="." instance=ExtResource("3_4b4sc")]
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.301825, -0.242342)

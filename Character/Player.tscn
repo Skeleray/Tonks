@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://de7mc0keiimy4"]
+[gd_scene load_steps=10 format=3 uid="uid://de7mc0keiimy4"]
 
 [ext_resource type="Script" path="res://Scripts/playerMover.gd" id="1_rg6gb"]
 [ext_resource type="PackedScene" uid="uid://brknc5konq6ak" path="res://Character/TankHead.tscn" id="2_4j75f"]
 [ext_resource type="Script" path="res://addons/smoothing/smoothing.gd" id="2_cejib"]
 [ext_resource type="PackedScene" uid="uid://b6xt2da4p8s3k" path="res://Models/TonkBody.gltf" id="2_nps53"]
+[ext_resource type="Script" path="res://Character/PlayerMouse.gd" id="5_whse8"]
+[ext_resource type="Script" path="res://Character/player_shoot.gd" id="6_n3u7n"]
+[ext_resource type="PackedScene" uid="uid://brd3xrt4s6qyd" path="res://Bullets/BulletPoolTrigger.tscn" id="7_pd48w"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ulg2b"]
 height = 0.5
@@ -32,7 +35,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.250183, 0)
 [node name="TonkBody" parent="Smoothing/Body" instance=ExtResource("2_nps53")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, -0.251165, 0)
 
-[node name="TankHead" parent="Smoothing" node_paths=PackedStringArray("mesh") instance=ExtResource("2_4j75f")]
+[node name="TankHead" parent="Smoothing" instance=ExtResource("2_4j75f")]
 transform = Transform3D(0.719909, 0, 0, 0, 0.761143, 0, 0, 0, 0.846271, 0, 0.515566, 0)
 rotation_speed = 4.0
-mesh = NodePath("../../MeshInstance3D")
+
+[node name="PlayerMouse" type="Node3D" parent="." node_paths=PackedStringArray("tank_head", "mesh")]
+script = ExtResource("5_whse8")
+tank_head = NodePath("../Smoothing/TankHead")
+mesh = NodePath("../MeshInstance3D")
+
+[node name="PlayerShoot" type="Node3D" parent="." node_paths=PackedStringArray("tank_head", "bullet_pool")]
+script = ExtResource("6_n3u7n")
+tank_head = NodePath("../Smoothing/TankHead")
+bullet_pool = NodePath("../BulletPoolTrigger")
+
+[node name="BulletPoolTrigger" parent="." instance=ExtResource("7_pd48w")]
