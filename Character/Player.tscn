@@ -48,5 +48,6 @@ mesh = NodePath("../MeshInstance3D")
 script = ExtResource("6_n3u7n")
 tank_head = NodePath("../Smoothing/TankHead")
 bullet_pool = NodePath("../BulletPoolTrigger")
+shoot_time = 0.1
 
 [node name="BulletPoolTrigger" parent="." instance=ExtResource("7_pd48w")]
