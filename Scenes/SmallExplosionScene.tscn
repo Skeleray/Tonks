@@ -1,14 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgw4y6wx703yg"]
+[gd_scene load_steps=8 format=3 uid="uid://cgw4y6wx703yg"]
 
 [ext_resource type="Shader" uid="uid://bsth0vlo1pobs" path="res://Assets/Shaders/Explosion.tres" id="1_e4cpt"]
+[ext_resource type="Texture2D" uid="uid://cjxvcw2a2i55e" path="res://Assets/textures/effects/GenericNoise3.png" id="2_key64"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bv6hh"]
 render_priority = 0
 shader = ExtResource("1_e4cpt")
 shader_parameter/explosionColour = Color(1, 1, 1, 1)
-shader_parameter/LateVis = 0.0330609
+shader_parameter/explosionColour2 = null
+shader_parameter/LateVis = 0.0
 shader_parameter/Alpha = 0.0
 shader_parameter/emission = Color(1, 1, 0.835294, 1)
+shader_parameter/Texture2DParameter = ExtResource("2_key64")
 
 [sub_resource type="SphereMesh" id="SphereMesh_smtxp"]
 
@@ -81,6 +84,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:material_override:shader_parameter/explosionColour2")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [null]
+}
 
 [sub_resource type="Animation" id="Animation_2i0f8"]
 resource_name = "SmallExplosionAnimation"
@@ -115,27 +130,39 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.852803, 0.324187, 0, 1)]
+"values": [Color(0.89821, 0.712392, 2.69532e-06, 1), Color(0.852803, 0.324187, 0, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath(".:material_override:shader_parameter/emission")
+tracks/3/path = NodePath(".:material_override:shader_parameter/explosionColour2")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 0.984794, 0.956807, 1), Color(1, 0.52909, 0.345036, 0.631373)]
+"values": [Color(0.944903, 0.169158, 1.92523e-07, 1), Color(0.70645, 0.125083, 0, 1)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath(".:material_override:shader_parameter/LateVis")
+tracks/4/path = NodePath(".:material_override:shader_parameter/emission")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.984794, 0.956807, 1), Color(0.65944, 0.625259, 0.573785, 0.384314), Color(0, 0, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:material_override:shader_parameter/LateVis")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
@@ -151,7 +178,7 @@ _data = {
 [node name="SmallExplosionObject" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0474566, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0490872, 0.00283319, -0.00250292)
 material_override = SubResource("ShaderMaterial_bv6hh")
 mesh = SubResource("SphereMesh_smtxp")
 
