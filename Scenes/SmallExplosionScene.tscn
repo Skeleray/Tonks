@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgw4y6wx703yg"]
+[gd_scene load_steps=9 format=3 uid="uid://cgw4y6wx703yg"]
 
+[ext_resource type="Script" path="res://Scripts/Effects/smallExplosion.gd" id="1_308qk"]
 [ext_resource type="Shader" uid="uid://bsth0vlo1pobs" path="res://Assets/Shaders/Explosion.tres" id="1_e4cpt"]
 [ext_resource type="Texture2D" uid="uid://cjxvcw2a2i55e" path="res://Assets/textures/effects/GenericNoise3.png" id="2_key64"]
 
@@ -100,7 +101,6 @@ tracks/6/keys = {
 [sub_resource type="Animation" id="Animation_2i0f8"]
 resource_name = "SmallExplosionAnimation"
 length = 0.5
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -176,9 +176,9 @@ _data = {
 }
 
 [node name="SmallExplosionObject" type="Node3D"]
+script = ExtResource("1_308qk")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0490872, 0.00283319, -0.00250292)
 material_override = SubResource("ShaderMaterial_bv6hh")
 mesh = SubResource("SphereMesh_smtxp")
 
