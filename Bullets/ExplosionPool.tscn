@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cm6seafulx5il"]
+
+[ext_resource type="Script" path="res://Bullets/explosion_pool.gd" id="1_t5kb5"]
+
+[node name="ExplosionPool" type="Node3D"]
+script = ExtResource("1_t5kb5")

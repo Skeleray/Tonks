@@ -1,4 +1,4 @@
 extends Node3D
 
-class_name BulletExplosionBase
+class_name BaseExplosion
 @export var model: MeshInstance3D
