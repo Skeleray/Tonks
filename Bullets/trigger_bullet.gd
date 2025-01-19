@@ -3,12 +3,14 @@ extends BaseBullet
 @export var acceleration := 0.0
 @export var max_velocity := 0.0
 @export var start_velocity := 0.0
+@export var model : Node3D
 var current_velocity := Vector3.ZERO
 
 func SetStartPosition(start_position:Vector3, start_direction :Vector3 ) -> void:
 	position = start_position
 	direction = start_direction.normalized()
 	current_velocity = direction * start_velocity
+	model.look_at(direction+start_position)
 
 
 # Called when the node enters the scene tree for the first time.

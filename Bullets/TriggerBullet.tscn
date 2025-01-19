@@ -2,15 +2,16 @@
 
 [ext_resource type="Script" path="res://Bullets/trigger_bullet.gd" id="1_8srp8"]
 [ext_resource type="PackedScene" uid="uid://b2r2cja86n2lb" path="res://Bullets/BulletExplosionBase.tscn" id="2_ftpwi"]
+[ext_resource type="PackedScene" uid="uid://dtrk0i73sjios" path="res://Models/Shell.gltf" id="3_rff80"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8nrmd"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_dynlx"]
-
-[node name="TriggerBullet" type="Node3D"]
+[node name="TriggerBullet" type="Node3D" node_paths=PackedStringArray("model")]
 script = ExtResource("1_8srp8")
-acceleration = 100.0
+acceleration = -1.0
 max_velocity = 100.0
+start_velocity = 20.0
+model = NodePath("BulletMesh")
 packed_explosion_scene = ExtResource("2_ftpwi")
 
 [node name="Area3D" type="Area3D" parent="."]
@@ -20,8 +21,7 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_8nrmd")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_dynlx")
+[node name="BulletMesh" parent="." instance=ExtResource("3_rff80")]
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
