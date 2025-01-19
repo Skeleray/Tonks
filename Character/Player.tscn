@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://de7mc0keiimy4"]
+[gd_scene load_steps=12 format=3 uid="uid://de7mc0keiimy4"]
 
 [ext_resource type="Script" path="res://Scripts/playerMover.gd" id="1_rg6gb"]
 [ext_resource type="PackedScene" uid="uid://brknc5konq6ak" path="res://Character/TankHead.tscn" id="2_4j75f"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://Character/PlayerMouse.gd" id="5_whse8"]
 [ext_resource type="Script" path="res://Character/player_shoot.gd" id="6_n3u7n"]
 [ext_resource type="PackedScene" uid="uid://brd3xrt4s6qyd" path="res://Bullets/BulletPoolTrigger.tscn" id="7_pd48w"]
+[ext_resource type="Script" path="res://Bullets/explosion_pool.gd" id="8_8y1ho"]
+[ext_resource type="PackedScene" uid="uid://cgw4y6wx703yg" path="res://Scenes/SmallExplosionScene.tscn" id="9_1pble"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ulg2b"]
 height = 0.5
@@ -50,4 +52,10 @@ tank_head = NodePath("../Smoothing/TankHead")
 bullet_pool = NodePath("../BulletPoolTrigger")
 shoot_time = 0.1
 
-[node name="BulletPoolTrigger" parent="." instance=ExtResource("7_pd48w")]
+[node name="BulletPoolTrigger" parent="." node_paths=PackedStringArray("explosion_pool") instance=ExtResource("7_pd48w")]
+explosion_pool = NodePath("../ExplosionPool")
+
+[node name="ExplosionPool" type="Node3D" parent="."]
+script = ExtResource("8_8y1ho")
+explosion = ExtResource("9_1pble")
+number_of_explosions = 50

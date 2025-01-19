@@ -6,5 +6,6 @@ func _process(delta):
 	if !explodeAnimation.is_playing():
 		endEffect()
 
-func startEffect(pos: Vector3):
+func startEffect(global_pos: Vector3):
+	global_position = global_pos
 	explodeAnimation.play("SmallExplosionAnimation")

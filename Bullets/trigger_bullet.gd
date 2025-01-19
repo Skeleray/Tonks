@@ -30,10 +30,16 @@ func _process(delta: float) -> void:
 
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
-	set_process(false)
+	if explosion_pool != null :
+		var explosion :=explosion_pool._get_next_explosion()
+		explosion.startEffect(global_position)
 	visible = false
+	set_process(false)
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	set_process(false)
+	if explosion_pool != null :
+		var explosion :=explosion_pool._get_next_explosion()
+		explosion.startEffect(global_position)
 	visible = false
+	set_process(false)
