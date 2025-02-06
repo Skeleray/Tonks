@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bsihik7j0mfaa"]
+[gd_scene load_steps=11 format=3 uid="uid://bsihik7j0mfaa"]
 
 [ext_resource type="PackedScene" uid="uid://de7mc0keiimy4" path="res://Character/Player.tscn" id="1_8qc77"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_pfbbg"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_f3eam"]
 [ext_resource type="PackedScene" uid="uid://cbtde7bkbonw2" path="res://Scenes/TrenchBroomMapTest.tscn" id="6_68y8n"]
 [ext_resource type="Script" path="res://Scripts/reloadScene.gd" id="7_3epjk"]
+[ext_resource type="PackedScene" uid="uid://dvq836c75krrj" path="res://PowerUp/PowerUp.tscn" id="8_ffo7c"]
 
 [sub_resource type="GDScript" id="GDScript_ltx8a"]
 script/source = "extends Camera3D
@@ -58,3 +59,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.49898, 0)
 
 [node name="GameLogic" type="Node" parent="."]
 script = ExtResource("7_3epjk")
+
+[node name="PowerUp" parent="." instance=ExtResource("8_ffo7c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.14464, -0.99898, 3.24183)
+speed_multiplier_addative_increase = 2.0
+power_up_duration = 10.0

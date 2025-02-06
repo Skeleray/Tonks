@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://de7mc0keiimy4"]
+[gd_scene load_steps=15 format=3 uid="uid://de7mc0keiimy4"]
 
 [ext_resource type="Script" path="res://Scripts/playerMover.gd" id="1_rg6gb"]
 [ext_resource type="PackedScene" uid="uid://brknc5konq6ak" path="res://Character/TankHead.tscn" id="2_4j75f"]
@@ -9,14 +9,25 @@
 [ext_resource type="PackedScene" uid="uid://brd3xrt4s6qyd" path="res://Bullets/BulletPoolTrigger.tscn" id="7_pd48w"]
 [ext_resource type="Script" path="res://Bullets/explosion_pool.gd" id="8_8y1ho"]
 [ext_resource type="PackedScene" uid="uid://cgw4y6wx703yg" path="res://Scenes/SmallExplosionScene.tscn" id="9_1pble"]
+[ext_resource type="Script" path="res://Scripts/Stats/Stats.gd" id="10_pldui"]
+[ext_resource type="Script" path="res://Scripts/Stats/baseStatResource.gd" id="11_cguq3"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ulg2b"]
 height = 0.5
 
 [sub_resource type="PrismMesh" id="PrismMesh_wveib"]
 
-[node name="Player" type="CharacterBody3D"]
+[sub_resource type="Resource" id="Resource_npfon"]
+script = ExtResource("11_cguq3")
+max_movement_speed = 3.0
+health = 1.0
+movement_rotate_speed = 4.0
+tank_head_rotate_speed = 2.0
+acceleration = 20.0
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("stat")]
 script = ExtResource("1_rg6gb")
+stat = NodePath("Stats")
 rotation_speed = 3.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -37,9 +48,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.250183, 0)
 [node name="TonkBody" parent="Smoothing/Body" instance=ExtResource("2_nps53")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, -0.251165, 0)
 
-[node name="TankHead" parent="Smoothing" instance=ExtResource("2_4j75f")]
+[node name="TankHead" parent="Smoothing" node_paths=PackedStringArray("stats") instance=ExtResource("2_4j75f")]
 transform = Transform3D(0.719909, 0, 0, 0, 0.761143, 0, 0, 0, 0.846271, 0, 0.515566, 0)
 rotation_speed = 4.0
+stats = NodePath("../../Stats")
 
 [node name="PlayerMouse" type="Node3D" parent="." node_paths=PackedStringArray("tank_head", "mesh")]
 script = ExtResource("5_whse8")
@@ -59,3 +71,7 @@ explosion_pool = NodePath("../ExplosionPool")
 script = ExtResource("8_8y1ho")
 explosion = ExtResource("9_1pble")
 number_of_explosions = 50
+
+[node name="Stats" type="Node" parent="."]
+script = ExtResource("10_pldui")
+base_stats = SubResource("Resource_npfon")

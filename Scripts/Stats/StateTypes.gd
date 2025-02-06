@@ -1,4 +1,4 @@
 extends Node 
 
 class_name StateTypes
-enum  {Rotate_speed, Movement_speed, Health, Shoot_speed }
+enum  {Movement_Rotate_speed, Max_Movement_Speed, Health, Shoot_speed, Tank_Head_Rotate_Speed, Acceleration }
