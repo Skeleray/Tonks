@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://bsr3d38fnv1su"]
+
+[ext_resource type="Script" path="res://Enemies/enemy_test.gd" id="1_gh5nq"]
+[ext_resource type="Script" path="res://Scripts/Stats/Stats.gd" id="1_i7nvj"]
+[ext_resource type="Script" path="res://Scripts/Stats/baseStatResource.gd" id="2_b1ikc"]
+[ext_resource type="Script" path="res://Scripts/StateMachine/BaseStateMachine.gd" id="3_fmb6r"]
+[ext_resource type="Script" path="res://Scripts/StateMachine/EnemyStates/EnemyPatrolState.gd" id="4_u1n5a"]
+[ext_resource type="Script" path="res://Scripts/StateMachine/EnemyStates/EnemyChase.gd" id="6_j47d7"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ntr0u"]
+
+[sub_resource type="Resource" id="Resource_dsp34"]
+script = ExtResource("2_b1ikc")
+max_movement_speed = 1.0
+health = 1.0
+movement_rotate_speed = 1.0
+tank_head_rotate_speed = 1.0
+acceleration = 2.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_875jd"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_2fylp"]
+
+[node name="EnemyTest" type="Node3D" node_paths=PackedStringArray("patrollState", "chaseState")]
+script = ExtResource("1_gh5nq")
+patrollState = NodePath("CharacterBody3D/states/EnemyPatrol")
+chaseState = NodePath("CharacterBody3D/states/EnemyChaseState")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+collision_layer = 8
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+mesh = SubResource("CapsuleMesh_ntr0u")
+
+[node name="Stats" type="Node" parent="CharacterBody3D"]
+script = ExtResource("1_i7nvj")
+base_stats = SubResource("Resource_dsp34")
+
+[node name="states" type="Node" parent="CharacterBody3D" node_paths=PackedStringArray("start_state")]
+script = ExtResource("3_fmb6r")
+start_state = NodePath("EnemyPatrol")
+
+[node name="EnemyPatrol" type="Node" parent="CharacterBody3D/states" node_paths=PackedStringArray("points", "navigation_agent", "character", "chase_state", "stats")]
+script = ExtResource("4_u1n5a")
+points = [null, null, null]
+navigation_agent = NodePath("../../NavigationAgent3D")
+character = NodePath("../..")
+chase_state = NodePath("../EnemyChaseState")
+stats = NodePath("../../Stats")
+
+[node name="EnemyChaseState" type="Node" parent="CharacterBody3D/states" node_paths=PackedStringArray("patrolState", "character", "navigation_agent", "stats")]
+script = ExtResource("6_j47d7")
+patrolState = NodePath("../EnemyPatrol")
+character = NodePath("../..")
+navigation_agent = NodePath("../../NavigationAgent3D")
+stats = NodePath("../../Stats")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="CharacterBody3D"]
+debug_enabled = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_875jd")
+
+[node name="Area3D" type="Area3D" parent="CharacterBody3D"]
+collision_mask = 1024
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D/Area3D"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -0.00281024, 0.01073, -0.00514412)
+shape = SubResource("CylinderShape3D_2fylp")
+
+[connection signal="body_entered" from="CharacterBody3D/Area3D" to="." method="_on_area_3d_player_body_entered"]
+[connection signal="body_exited" from="CharacterBody3D/Area3D" to="." method="_on_area_3d_player_body_exited"]

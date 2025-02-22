@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+class_name TankController
+
 # signal health_change
 
 @export var acceleration_speed: float = 1
