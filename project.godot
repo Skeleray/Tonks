@@ -23,6 +23,10 @@ PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_came
 
 enabled=PackedStringArray("res://addons/func_godot/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/smoothing/plugin.cfg")
 
+[global_group]
+
+Player="PlayerScene"
+
 [input]
 
 forward={

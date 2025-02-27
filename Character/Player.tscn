@@ -25,7 +25,7 @@ movement_rotate_speed = 4.0
 tank_head_rotate_speed = 2.0
 acceleration = 20.0
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("stat")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("stat") groups=["Player"]]
 collision_layer = 1024
 script = ExtResource("1_rg6gb")
 stat = NodePath("Stats")

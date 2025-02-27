@@ -15,8 +15,7 @@ var playerNode : Node3D
 
 @export var stats : Stats
 
-
-
+	
 
 
 func ProcessState(delta:float)->BaseState:

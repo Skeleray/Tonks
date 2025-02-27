@@ -70,10 +70,9 @@ maximum_speed = 4.0
 [node name="Smoothing2" type="Node3D" parent="NavigationRegion3D/Player"]
 script = ExtResource("3_kshb4")
 
-[node name="EnemyTest" parent="NavigationRegion3D" node_paths=PackedStringArray("patrollPoints", "player") instance=ExtResource("1_jaflf")]
+[node name="EnemyTest" parent="NavigationRegion3D" node_paths=PackedStringArray("patrollPoints") instance=ExtResource("1_jaflf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.76141, 1.83438, 7.19892)
 patrollPoints = [NodePath("../../PathNodes/MeshInstance3D"), NodePath("../../PathNodes/MeshInstance3D2"), NodePath("../../PathNodes/MeshInstance3D3")]
-player = NodePath("../Player")
 
 [node name="PowerUp" parent="." instance=ExtResource("8_ffo7c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.14464, -0.99898, 3.24183)

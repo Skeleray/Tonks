@@ -6,9 +6,15 @@ class_name enemytest
 @export var patrollState:EnemyPatrollState
 @export var chaseState:EnemyChaseState
 var playerInArea : bool
-@export var player:Node3D
+var player:Node3D
 
 func _ready() -> void:
+	var playerGroup := get_tree().get_nodes_in_group("Player")
+	if  ! playerGroup.is_empty() :
+		player =	playerGroup[0]  
+		
+		
+	chaseState.playerNode = player
 	patrollState.points = patrollPoints
 	chaseState.playerNode = player
 
