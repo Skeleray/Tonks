@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://brd3xrt4s6qyd"]
 
-[ext_resource type="Script" path="res://Bullets/bullet_pool.gd" id="1_wqv20"]
+[ext_resource type="Script" uid="uid://byckhoj57cfn1" path="res://Bullets/bullet_pool.gd" id="1_wqv20"]
 [ext_resource type="PackedScene" uid="uid://bh2csag5shpq5" path="res://Bullets/TriggerBullet.tscn" id="2_8ysx6"]
 
 [node name="BulletPoolTrigger" type="Node3D"]

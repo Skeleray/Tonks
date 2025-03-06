@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dvq836c75krrj"]
 
-[ext_resource type="Script" path="res://PowerUp/speed_power_up.gd" id="1_7aftg"]
+[ext_resource type="Script" uid="uid://dkc3rsh1of88t" path="res://PowerUp/speed_power_up.gd" id="1_7aftg"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_7cbtu"]
 

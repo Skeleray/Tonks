@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://cgw4y6wx703yg"]
 
-[ext_resource type="Script" path="res://Scripts/Effects/smallExplosion.gd" id="1_308qk"]
+[ext_resource type="Script" uid="uid://cr8q6mqjupx1c" path="res://Scripts/Effects/smallExplosion.gd" id="1_308qk"]
 [ext_resource type="Shader" uid="uid://bsth0vlo1pobs" path="res://Assets/Shaders/Explosion.tres" id="1_e4cpt"]
 [ext_resource type="Texture2D" uid="uid://cjxvcw2a2i55e" path="res://Assets/textures/effects/GenericNoise3.png" id="2_key64"]
 
@@ -8,11 +8,11 @@
 render_priority = 0
 shader = ExtResource("1_e4cpt")
 shader_parameter/explosionColour = Color(1, 1, 1, 1)
-shader_parameter/explosionColour2 = null
+shader_parameter/explosionColour2 = Color(0, 0, 0, 1)
+shader_parameter/Texture2DParameter = ExtResource("2_key64")
 shader_parameter/LateVis = 0.0
 shader_parameter/Alpha = 0.0
 shader_parameter/emission = Color(1, 1, 0.835294, 1)
-shader_parameter/Texture2DParameter = ExtResource("2_key64")
 
 [sub_resource type="SphereMesh" id="SphereMesh_smtxp"]
 
@@ -171,11 +171,12 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8ebww"]
 _data = {
-"RESET": SubResource("Animation_hygit"),
-"SmallExplosionAnimation": SubResource("Animation_2i0f8")
+&"RESET": SubResource("Animation_hygit"),
+&"SmallExplosionAnimation": SubResource("Animation_2i0f8")
 }
 
 [node name="SmallExplosionObject" type="Node3D"]
+physics_interpolation_mode = 2
 script = ExtResource("1_308qk")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -184,6 +185,6 @@ mesh = SubResource("SphereMesh_smtxp")
 
 [node name="ExplosionAnimation" type="AnimationPlayer" parent="MeshInstance3D"]
 libraries = {
-"": SubResource("AnimationLibrary_8ebww")
+&"": SubResource("AnimationLibrary_8ebww")
 }
 speed_scale = 1.75

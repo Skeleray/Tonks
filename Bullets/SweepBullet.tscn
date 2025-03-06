@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://img2tabjlact"]
 
-[ext_resource type="Script" path="res://Bullets/sweep_bullet.gd" id="1_5ihya"]
+[ext_resource type="Script" uid="uid://couifc4h0e3ay" path="res://Bullets/sweep_bullet.gd" id="1_5ihya"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_louma"]
 

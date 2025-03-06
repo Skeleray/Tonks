@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://brknc5konq6ak"]
 
-[ext_resource type="Script" path="res://Character/tank_head.gd" id="1_6e5qn"]
+[ext_resource type="Script" uid="uid://c41jg8vm1mfv1" path="res://Character/tank_head.gd" id="1_6e5qn"]
 [ext_resource type="PackedScene" uid="uid://cdeq7h3mrl5lk" path="res://Models/TonkTurret.gltf" id="2_k5g0s"]
 
 [node name="TankHead" type="Node3D" node_paths=PackedStringArray("shootPoint", "rayCast")]

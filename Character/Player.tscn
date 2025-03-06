@@ -1,16 +1,16 @@
 [gd_scene load_steps=15 format=3 uid="uid://de7mc0keiimy4"]
 
-[ext_resource type="Script" path="res://Scripts/playerMover.gd" id="1_rg6gb"]
+[ext_resource type="Script" uid="uid://bdgkjm6ldsnw0" path="res://Scripts/playerMover.gd" id="1_rg6gb"]
 [ext_resource type="PackedScene" uid="uid://brknc5konq6ak" path="res://Character/TankHead.tscn" id="2_4j75f"]
-[ext_resource type="Script" path="res://addons/smoothing/smoothing.gd" id="2_cejib"]
+[ext_resource type="Script" uid="uid://dgk65w8mx3y7n" path="res://addons/smoothing/smoothing.gd" id="2_cejib"]
 [ext_resource type="PackedScene" uid="uid://b6xt2da4p8s3k" path="res://Models/TonkBody.gltf" id="2_nps53"]
-[ext_resource type="Script" path="res://Character/PlayerMouse.gd" id="5_whse8"]
-[ext_resource type="Script" path="res://Character/player_shoot.gd" id="6_n3u7n"]
+[ext_resource type="Script" uid="uid://likbsc8i33xt" path="res://Character/PlayerMouse.gd" id="5_whse8"]
+[ext_resource type="Script" uid="uid://brhdxc2cge8ws" path="res://Character/player_shoot.gd" id="6_n3u7n"]
 [ext_resource type="PackedScene" uid="uid://brd3xrt4s6qyd" path="res://Bullets/BulletPoolTrigger.tscn" id="7_pd48w"]
-[ext_resource type="Script" path="res://Bullets/explosion_pool.gd" id="8_8y1ho"]
+[ext_resource type="Script" uid="uid://7dd5ye7c54mq" path="res://Bullets/explosion_pool.gd" id="8_8y1ho"]
 [ext_resource type="PackedScene" uid="uid://cgw4y6wx703yg" path="res://Scenes/SmallExplosionScene.tscn" id="9_1pble"]
-[ext_resource type="Script" path="res://Scripts/Stats/Stats.gd" id="10_pldui"]
-[ext_resource type="Script" path="res://Scripts/Stats/baseStatResource.gd" id="11_cguq3"]
+[ext_resource type="Script" uid="uid://ddxev5ufphgw7" path="res://Scripts/Stats/Stats.gd" id="10_pldui"]
+[ext_resource type="Script" uid="uid://b8oodnhsk6s4g" path="res://Scripts/Stats/baseStatResource.gd" id="11_cguq3"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ulg2b"]
 height = 0.5

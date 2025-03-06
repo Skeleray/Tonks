@@ -26,6 +26,6 @@ func _get_next_explosion() -> BaseExplosion :
 	var return_bullet := bullets[current_index]  
 	current_index = current_index +1
 	current_index = current_index % bullets.size()
-	return_bullet.visible = true
 	return_bullet.set_process(true)
+	return_bullet.visible = true                 
 	return return_bullet

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://csymv1cgme5da"]
 
-[ext_resource type="Script" path="res://Scenes/NavigationTest.gd" id="1_f0one"]
+[ext_resource type="Script" uid="uid://cxwr88gooi2tj" path="res://Scenes/NavigationTest.gd" id="1_f0one"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cvvwh"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
