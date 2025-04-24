@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bsr3d38fnv1su"]
+[gd_scene load_steps=12 format=3 uid="uid://bsr3d38fnv1su"]
 
 [ext_resource type="Script" uid="uid://cbkyn23yuhhvw" path="res://Enemies/enemy_test.gd" id="1_gh5nq"]
 [ext_resource type="Script" uid="uid://ddxev5ufphgw7" path="res://Scripts/Stats/Stats.gd" id="1_i7nvj"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://chpb1oa2elayi" path="res://Scripts/StateMachine/BaseStateMachine.gd" id="3_fmb6r"]
 [ext_resource type="Script" uid="uid://de4jqanrr6uk8" path="res://Scripts/StateMachine/EnemyStates/EnemyPatrolState.gd" id="4_u1n5a"]
 [ext_resource type="Script" uid="uid://cocqbvr3f6ysa" path="res://Scripts/StateMachine/EnemyStates/EnemyChase.gd" id="6_j47d7"]
+[ext_resource type="Script" uid="uid://cchprygmclask" path="res://Scripts/StateMachine/EnemyStates/EnemyStandAndShootState.gd" id="7_vrjia"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ntr0u"]
 
@@ -54,6 +55,10 @@ patrolState = NodePath("../EnemyPatrol")
 character = NodePath("../..")
 navigation_agent = NodePath("../../NavigationAgent3D")
 stats = NodePath("../../Stats")
+
+[node name="EnemyStandAndShootState" type="Node" parent="CharacterBody3D/states"]
+script = ExtResource("7_vrjia")
+metadata/_custom_type_script = "uid://cchprygmclask"
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="CharacterBody3D"]
 debug_enabled = true
